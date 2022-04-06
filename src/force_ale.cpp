@@ -50,6 +50,7 @@ void force_ale::ini(lexer *p, fdm_fnpf *c, ghostcell *pgc)
 	p->Darray(un, p->knoz);
 	//p->Darray(u2n, p->knoz);
 	p->Darray(vn, p->knoz);
+	p->Darray(cs, p->knoz);
 
     // Ini eta
 	etan=p->wd;
@@ -79,11 +80,14 @@ void force_ale::start(lexer *p, fdm_fnpf *c, ghostcell *pgc)
     else
     {
         Fx = Fy = 0.0;
+        Fxs =Fys = 0.0;
     }
 
     // Sum up to distribute forces
     Fx = pgc->globalsum(Fx);
     Fy = pgc->globalsum(Fy);
+    Fxs = pgc->globalsum(Fxs);
+    Fys = pgc->globalsum(Fys);
 
     // Print
     if(p->mpirank==0)

@@ -31,7 +31,7 @@ void force_ale::print_force_ale(lexer* p, fdm_fnpf *c, ghostcell *pgc)
     cout<<"Fx"<<ID + 1<<": "<<Fx<<" Fy"<<ID + 1<<": "<<Fy<<endl;
     
     // write to force file
-    fout<<p->count<<" \t "<<setprecision(9)<<p->simtime<<" \t "<<Fx<<" \t "<<Fy<<endl;
+    fout<<p->count<<" \t "<<setprecision(9)<<p->simtime<<" \t "<<Fx<<" \t "<<Fy<<" \t "<<Fxs<<" \t"<<Fys<<endl;
 }
 
 void force_ale::print_ini(lexer* p, fdm_fnpf *c, ghostcell *pgc)
@@ -56,7 +56,7 @@ void force_ale::print_ini(lexer* p, fdm_fnpf *c, ghostcell *pgc)
         fout<<p->P85_x[ID]<<" \t "<<p->P85_y[ID]<<" \t "<<p->P85_cd[ID]<<" \t "<<p->P85_cm[ID] <<endl;
         fout<<endl<<endl;
      
-        fout<<"it \t time \t Fx \t Fy ";
+        fout<<"it \t time \t Fx \t Fy \t FSx \t FSy ";
 
         fout<<endl;
 	}

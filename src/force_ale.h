@@ -56,7 +56,7 @@ private:
 	double dvdxi(lexer*, fdm_fnpf*, ghostcell*);
 	
     // force ale variabes
-    double Fx1,Fy1,Fx,Fy,xc,yc,rc,cd,cm,etan,dtn,eta2n,ax1,ay1,ax2,ay2,ax3,ay3,dudsig_,dvdsig_,ax,ay;
+    double Fx1,Fy1,Fx,Fy,Fxs1,Fys1,Fxs,Fys,cs,xc,yc,rc,cd,cm,etan,dtn,eta2n,ax1,ay1,ax2,ay2,ax3,ay3,dudsig_,dvdsig_,ax,ay;
 	double *un, *u2n, *vn;
     const int ID;
     

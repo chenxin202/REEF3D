@@ -115,9 +115,16 @@ void force_ale::force_ale_force(lexer* p, fdm_fnpf *c, ghostcell *pgc)
         Fx1 = (p->wd + c->eta(i,j))*((cm*ax*p->W1*PI*rc*rc*p->DZN[KP])+ (cd*c->U[FIJK]*fabs(c->U[FIJK])*0.5*p->W1*2*rc*p->DZN[KP]));
         Fy1 = (p->wd + c->eta(i,j))*((cm*ay*p->W1*PI*rc*rc*p->DZN[KP])+ (cd*c->V[FIJK]*fabs(c->V[FIJK])*0.5*p->W1*2*rc*p->DZN[KP]));
         
+        //Slamming forces following Pakozdi et al (2022) JOMAE
+        cs= 5.15 * ((2*rc/(2*rc+19*p->DZN[KP])) + (0.107*p->DZN[KP])/(2*rc)); 
+        Fxs1= 0.5*p->W1*cs*2*rc*c->U[FIJK]*fabs(c->U[FIJK]);
+        Fys1= 0.5*p->W1*cs*2*rc*c->V[FIJK]*fabs(c->V[FIJK]);
+        
         // Sum up forces
         Fx += Fx1;
         Fy += Fy1;
+        Fxs +=Fxs1;
+        Fys +=Fys1;
         ztot += p->DZN[KP]; // checking total dz=1
         
         // Storing current time step information for next time step gradient calculation
