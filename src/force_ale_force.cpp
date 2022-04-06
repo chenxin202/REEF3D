@@ -87,6 +87,7 @@ void force_ale::force_ale_force(lexer* p, fdm_fnpf *c, ghostcell *pgc)
     double ztot=0; // check for strip total
 
 	Fx=Fy=0;
+	Fxs=Fys=0;
 	
     for(k=0; k<p->knoz; ++k)
 	{
