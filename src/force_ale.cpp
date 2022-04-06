@@ -50,7 +50,6 @@ void force_ale::ini(lexer *p, fdm_fnpf *c, ghostcell *pgc)
 	p->Darray(un, p->knoz);
 	//p->Darray(u2n, p->knoz);
 	p->Darray(vn, p->knoz);
-	p->Darray(cs, p->knoz);
 
     // Ini eta
 	etan=p->wd;
