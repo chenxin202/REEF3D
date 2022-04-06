@@ -118,8 +118,8 @@ void force_ale::force_ale_force(lexer* p, fdm_fnpf *c, ghostcell *pgc)
         
         //Slamming forces following Pakozdi et al (2022) JOMAE
         cs= 5.15 * ((2*rc/(2*rc+19*p->DZN[KP])) + (0.107*p->DZN[KP])/(2*rc)); 
-        Fxs1= 0.5*p->W1*cs*2*rc*c->U[FIJK]*fabs(c->U[FIJK]);
-        Fys1= 0.5*p->W1*cs*2*rc*c->V[FIJK]*fabs(c->V[FIJK]);
+        Fxs1= 0.5*p->W1*cs*2*rc*c->U[FIJK]*fabs(c->U[FIJK])*p->DZN[KP];
+        Fys1= 0.5*p->W1*cs*2*rc*c->V[FIJK]*fabs(c->V[FIJK])*p->DZN[KP];
         
         // Sum up forces
         Fx += Fx1;
